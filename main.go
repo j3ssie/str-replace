@@ -102,6 +102,7 @@ func main() {
 
 func handleStringWithWordlist(raw string) {
     for _, replaceWord := range data {
+        replaceWord = strings.TrimSpace(replaceWord)
         if replaceWord == "" {
             continue
         }
@@ -134,12 +135,14 @@ func handleStringWithTLD(raw string) {
     subWords := strings.Split(sub, ".")
     for _, subWord := range subWords {
         for _, replaceWord := range data {
+            replaceWord = strings.TrimSpace(replaceWord)
             if replaceWord == "" {
                 continue
             }
             subdomain := strings.Replace(raw, subWord, replaceWord, -1)
-
-            fmt.Println(subdomain)
+            if strings.Contains(subdomain, tld) {
+                fmt.Println(subdomain)
+            }
         }
     }
 }
