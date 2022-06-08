@@ -20,7 +20,6 @@ cat list-of-subdomain.txt | str-replace -W wordlists.txt -tld example.com
 
 ```
 
-
 ## Don't know how to use it? Well, This is already integrated into the Osmedeus workflow.
 
 <p align="center">
